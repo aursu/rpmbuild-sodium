@@ -1,0 +1,11 @@
+FROM aursu/rpmbuild:6-build
+
+COPY SOURCES ${BUILD_TOPDIR}/SOURCES
+COPY SPECS ${BUILD_TOPDIR}/SPECS
+
+USER root
+RUN chown -R $BUILD_USER ${BUILD_TOPDIR}/{SOURCES,SPECS}
+
+USER $BUILD_USER
+ENTRYPOINT ["/usr/bin/rpmbuild", "libsodium.spec"]
+CMD ["-ba"]

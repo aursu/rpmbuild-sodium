@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  centos6sodiumbuild:
+    volumes:
+      - rpms:/home/centos/rpmbuild/SRPMS
+      - rpm6:/home/centos/rpmbuild/RPMS
+    build:
+      context: .
+    image: aursu/sodiumbuild:el6
+
+volumes:
+  rpms:
+    name: rpms
+  rpm6:
+    name: rpm6
