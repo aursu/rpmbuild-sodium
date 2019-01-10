@@ -9,7 +9,7 @@
 %global soname  23
 
 Name:           libsodium
-Version:        1.0.16
+Version:        1.0.17
 Release:        1%{?dist}
 Summary:        The Sodium crypto library
 License:        ISC
@@ -66,9 +66,6 @@ rm -f %{buildroot}%{_libdir}/%{libname}.la
 %check
 make check
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %files
 %doc LICENSE
 %{_libdir}/%{libname}.so.%{soname}*
@@ -86,6 +83,9 @@ make check
 %{_libdir}/libsodium.a
 
 %changelog
+* Mon Jan  7 2019 Remi Collet <remi@remirepo.net> - 1.0.17-1 
+- update to 1.0.17
+
 * Wed Dec 13 2017 Remi Collet <remi@remirepo.net> - 1.0.16-1
 - update to 1.0.16
 
